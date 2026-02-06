@@ -9,41 +9,50 @@ export const Chat = () => {
   return (
     <>
       {/* Chat Button */}
-      <IconButton
-        position="fixed"
-        bottom="24"
-        right="24"
-        zIndex={10}
-        size="l"
-        icon="chat"
-        variant="primary"
-        onClick={() => setIsOpen(!isOpen)}
-        tooltip="Live Chat"
-        data-border="rounded"
+      <div
         style={{
-          boxShadow: "var(--shadow-l)",
+          position: "fixed",
+          bottom: "24px",
+          right: "24px",
+          zIndex: 10,
         }}
-      />
-
-      {/* Chat Window */}
-      {isOpen && (
-        <Card
-          position="fixed"
-          bottom="100"
-          right="24"
-          zIndex={10}
-          padding="l"
-          radius="m"
-          border="neutral-alpha-medium"
-          background="page"
-          maxWidth="400"
-          minWidth="320"
-          gap="m"
+      >
+        <IconButton
+          size="l"
+          icon="chat"
+          variant="primary"
+          onClick={() => setIsOpen(!isOpen)}
+          tooltip="Live Chat"
           data-border="rounded"
           style={{
             boxShadow: "var(--shadow-l)",
           }}
+        />
+      </div>
+
+      {/* Chat Window */}
+      {isOpen && (
+        <div
+          style={{
+            position: "fixed",
+            bottom: "100px",
+            right: "24px",
+            zIndex: 10,
+          }}
         >
+          <Card
+            padding="l"
+            radius="m"
+            border="neutral-alpha-medium"
+            background="page"
+            gap="m"
+            data-border="rounded"
+            style={{
+              boxShadow: "var(--shadow-l)",
+              maxWidth: "400px",
+              minWidth: "320px",
+            }}
+          >
           <Row fillWidth horizontal="between" vertical="center">
             <Text variant="heading-strong-m">Live Chat</Text>
             <IconButton
@@ -69,6 +78,7 @@ export const Chat = () => {
             </Button>
           </Column>
         </Card>
+        </div>
       )}
     </>
   );
