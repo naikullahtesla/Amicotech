@@ -58,14 +58,14 @@ const home: Home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Home",
-  title: `${person.name}'s Portfolio`,
-  description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  title: `AmicoTech - Digital Solutions & Development`,
+  description: `Comprehensive web development, mobile app development, and digital solutions for businesses`,
+  headline: <>Transforming ideas into digital excellence</>,
   featured: {
     display: true,
     title: (
       <Row gap="12" vertical="center">
-        <strong className="ml-4">Once UI</strong>{" "}
+        <strong className="ml-4">AmicoTech</strong>{" "}
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
           Featured work
@@ -76,7 +76,7 @@ const home: Home = {
   },
   subline: (
     <>
-    I'm Selene, a design engineer at <Text as="span" size="xl" weight="strong">ONCE UI</Text>, where I craft intuitive <br /> user experiences. After hours, I build my own projects.
+    We are <Text as="span" size="xl" weight="strong">AmicoTech</Text>, a digital solutions company specializing in <br /> web development, mobile apps, and custom software solutions for businesses worldwide.
 </>
   ),
 };
@@ -84,14 +84,14 @@ const home: Home = {
 const about: About = {
   path: "/about",
   label: "About",
-  title: `About – ${person.name}`,
-  description: `Meet ${person.name}, ${person.role} from ${person.location}`,
+  title: `About Us – AmicoTech`,
+  description: `Learn about AmicoTech, a leading software development company delivering innovative digital solutions`,
   tableOfContent: {
     display: true,
     subItems: false,
   },
   avatar: {
-    display: true,
+    display: false,
   },
   calendar: {
     display: true,
@@ -99,55 +99,45 @@ const about: About = {
   },
   intro: {
     display: true,
-    title: "Introduction",
+    title: "Who We Are",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        AmicoTech is a full-service software development company specializing in web applications, mobile apps, and custom software solutions. We combine technical expertise with business insight to deliver products that drive growth, efficiency, and competitive advantage for our clients across various industries.
       </>
     ),
   },
   work: {
     display: true, // set to false to hide this section
-    title: "Work Experience",
+    title: "Our Expertise",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "Full-Stack Development",
+        timeframe: "Core Service",
+        role: "End-to-End Software Solutions",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            Develop scalable web and mobile applications using modern frameworks and best practices,
+            ensuring high performance and maintainability.
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            Implement robust backend architectures with secure APIs, database design, and cloud infrastructure
+            to support business growth.
           </>,
         ],
-        images: [
-          // optional: leave the array empty if you don't want to display images
-          {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
-            width: 16,
-            height: 9,
-          },
-        ],
+        images: [],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "Industry Solutions",
+        timeframe: "Specialized Services",
+        role: "Domain-Specific Expertise",
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
+            Deliver tailored solutions for Education, Healthcare, Fintech, Retail, and SaaS industries
+            with deep understanding of sector-specific requirements.
           </>,
           <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
+            Ensure compliance with industry regulations (HIPAA, PCI-DSS, GDPR) and implement
+            security best practices throughout the development lifecycle.
           </>,
         ],
         images: [],
@@ -155,58 +145,22 @@ const about: About = {
     ],
   },
   studies: {
-    display: true, // set to false to hide this section
-    title: "Studies",
-    institutions: [
-      {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
-      },
-      {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
-      },
-    ],
+    display: false, // set to false to hide this section
+    title: "Certifications & Partnerships",
+    institutions: [],
   },
   technical: {
     display: true, // set to false to hide this section
-    title: "Technical skills",
+    title: "Technologies We Use",
     skills: [
       {
-        title: "Figma",
+        title: "Frontend Development",
         description: (
-          <>Able to prototype in Figma with Once UI with unnatural speed.</>
+          <>Modern, responsive user interfaces built with cutting-edge frameworks and libraries.</>
         ),
         tags: [
           {
-            name: "Figma",
-            icon: "figma",
-          },
-        ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-          {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
-      },
-      {
-        title: "Next.js",
-        description: (
-          <>Building next gen apps with Next.js + Once UI + Supabase.</>
-        ),
-        tags: [
-          {
-            name: "JavaScript",
+            name: "React",
             icon: "javascript",
           },
           {
@@ -214,19 +168,53 @@ const about: About = {
             icon: "nextjs",
           },
           {
-            name: "Supabase",
-            icon: "supabase",
+            name: "TypeScript",
+            icon: "javascript",
           },
         ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
+        images: [],
+      },
+      {
+        title: "Backend & Infrastructure",
+        description: (
+          <>Scalable server architectures, APIs, and cloud infrastructure for reliable, high-performance applications.</>
+        ),
+        tags: [
           {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
+            name: "Node.js",
+            icon: "javascript",
+          },
+          {
+            name: "Cloud Services",
+            icon: "rocket",
+          },
+          {
+            name: "Databases",
+            icon: "document",
           },
         ],
+        images: [],
+      },
+      {
+        title: "Mobile Development",
+        description: (
+          <>Native and cross-platform mobile applications for iOS and Android platforms.</>
+        ),
+        tags: [
+          {
+            name: "React Native",
+            icon: "javascript",
+          },
+          {
+            name: "Flutter",
+            icon: "rocket",
+          },
+          {
+            name: "Swift/Kotlin",
+            icon: "document",
+          },
+        ],
+        images: [],
       },
     ],
   },
@@ -301,4 +289,32 @@ const gallery: Gallery = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+const services: BasePageConfig = {
+  path: "/services",
+  label: "Services",
+  title: "Services - Our Development Solutions",
+  description: "Comprehensive web development, mobile app development, and digital solutions",
+};
+
+const industries: BasePageConfig = {
+  path: "/industries",
+  label: "Industries",
+  title: "Industries & Solutions - Industry-Specific Solutions",
+  description: "Tailored digital solutions for various industries",
+};
+
+const contact: BasePageConfig = {
+  path: "/contact",
+  label: "Contact",
+  title: "Contact Us - Get in Touch",
+  description: "All contact details and ways to reach us",
+};
+
+const workflow: BasePageConfig = {
+  path: "/workflow",
+  label: "Workflow",
+  title: "Our Workflow - Multi-Step Process Explained",
+  description: "Learn about our comprehensive workflow and development process",
+};
+
+export { person, social, newsletter, home, about, blog, work, gallery, services, industries, contact, workflow };

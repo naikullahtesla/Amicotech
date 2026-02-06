@@ -3,9 +3,10 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { Fade, Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
+import { Fade, Flex, Line, Row, ToggleButton, SmartLink } from "@once-ui-system/core";
+import Image from "next/image";
 
-import { routes, display, person, about, blog, work, gallery } from "@/resources";
+import { routes, display, person, about, work, gallery, services, industries, contact, workflow, schema } from "@/resources";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.scss";
 
@@ -44,6 +45,24 @@ export default TimeDisplay;
 
 export const Header = () => {
   const pathname = usePathname() ?? "";
+  const [currentTheme, setCurrentTheme] = useState("light");
+
+  useEffect(() => {
+    // Set initial theme
+    setCurrentTheme(document.documentElement.getAttribute("data-theme") || "light");
+
+    // Listen for theme changes
+    const observer = new MutationObserver(() => {
+      setCurrentTheme(document.documentElement.getAttribute("data-theme") || "light");
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <>
@@ -73,7 +92,25 @@ export const Header = () => {
         }}
       >
         <Row paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
-          {display.location && <Row s={{ hide: true }}>{person.location}</Row>}
+          <SmartLink href="/">
+            <Row gap="8" vertical="center">
+              {schema.logo && (
+                <Image
+                  src={schema.logo}
+                  alt={schema.name}
+                  width={120}
+                  height={40}
+                  style={{ 
+                    objectFit: "contain", 
+                    maxHeight: "40px", 
+                    filter: currentTheme === "dark" ? "invert(1)" : "none" 
+                  }}
+                  priority
+                />
+              )}
+            </Row>
+          </SmartLink>
+          {display.location && <Row s={{ hide: true }} marginLeft="m">{person.location}</Row>}
         </Row>
         <Row fillWidth horizontal="center">
           <Row
@@ -90,6 +127,63 @@ export const Header = () => {
                 <ToggleButton prefixIcon="home" href="/" selected={pathname === "/"} />
               )}
               <Line background="neutral-alpha-medium" vert maxHeight="24" />
+              {routes["/services"] && (
+                <>
+                  <Row s={{ hide: true }}>
+                    <ToggleButton
+                      prefixIcon="briefcase"
+                      href="/services"
+                      label={services.label}
+                      selected={pathname.startsWith("/services")}
+                    />
+                  </Row>
+                  <Row hide s={{ hide: false }}>
+                    <ToggleButton
+                      prefixIcon="briefcase"
+                      href="/services"
+                      selected={pathname.startsWith("/services")}
+                    />
+                  </Row>
+                </>
+              )}
+              {routes["/industries"] && (
+                <>
+                  <Row s={{ hide: true }}>
+                    <ToggleButton
+                      prefixIcon="building"
+                      href="/industries"
+                      label={industries.label}
+                      selected={pathname.startsWith("/industries")}
+                    />
+                  </Row>
+                  <Row hide s={{ hide: false }}>
+                    <ToggleButton
+                      prefixIcon="building"
+                      href="/industries"
+                      selected={pathname.startsWith("/industries")}
+                    />
+                  </Row>
+                </>
+              )}
+              {routes["/contact"] && (
+                <>
+                  <Row s={{ hide: true }}>
+                    <ToggleButton
+                      prefixIcon="email"
+                      href="/contact"
+                      label={contact.label}
+                      selected={pathname.startsWith("/contact")}
+                    />
+                  </Row>
+                  <Row hide s={{ hide: false }}>
+                    <ToggleButton
+                      prefixIcon="email"
+                      href="/contact"
+                      selected={pathname.startsWith("/contact")}
+                    />
+                  </Row>
+                </>
+              )}
               {routes["/about"] && (
                 <>
                   <Row s={{ hide: true }}>
@@ -97,71 +191,33 @@ export const Header = () => {
                       prefixIcon="person"
                       href="/about"
                       label={about.label}
-                      selected={pathname === "/about"}
+                      selected={pathname === "/about" || pathname.startsWith("/privacy-policy") || pathname.startsWith("/terms-and-conditions")}
                     />
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
                       prefixIcon="person"
                       href="/about"
-                      selected={pathname === "/about"}
+                      selected={pathname === "/about" || pathname.startsWith("/privacy-policy") || pathname.startsWith("/terms-and-conditions")}
                     />
                   </Row>
                 </>
               )}
-              {routes["/work"] && (
+              {routes["/workflow"] && (
                 <>
                   <Row s={{ hide: true }}>
                     <ToggleButton
-                      prefixIcon="grid"
-                      href="/work"
-                      label={work.label}
-                      selected={pathname.startsWith("/work")}
+                      prefixIcon="workflow"
+                      href="/workflow"
+                      label={workflow.label}
+                      selected={pathname.startsWith("/workflow")}
                     />
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
-                      prefixIcon="grid"
-                      href="/work"
-                      selected={pathname.startsWith("/work")}
-                    />
-                  </Row>
-                </>
-              )}
-              {routes["/blog"] && (
-                <>
-                  <Row s={{ hide: true }}>
-                    <ToggleButton
-                      prefixIcon="book"
-                      href="/blog"
-                      label={blog.label}
-                      selected={pathname.startsWith("/blog")}
-                    />
-                  </Row>
-                  <Row hide s={{ hide: false }}>
-                    <ToggleButton
-                      prefixIcon="book"
-                      href="/blog"
-                      selected={pathname.startsWith("/blog")}
-                    />
-                  </Row>
-                </>
-              )}
-              {routes["/gallery"] && (
-                <>
-                  <Row s={{ hide: true }}>
-                    <ToggleButton
-                      prefixIcon="gallery"
-                      href="/gallery"
-                      label={gallery.label}
-                      selected={pathname.startsWith("/gallery")}
-                    />
-                  </Row>
-                  <Row hide s={{ hide: false }}>
-                    <ToggleButton
-                      prefixIcon="gallery"
-                      href="/gallery"
-                      selected={pathname.startsWith("/gallery")}
+                      prefixIcon="workflow"
+                      href="/workflow"
+                      selected={pathname.startsWith("/workflow")}
                     />
                   </Row>
                 </>

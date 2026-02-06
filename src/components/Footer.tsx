@@ -1,5 +1,5 @@
 import { Row, IconButton, SmartLink, Text } from "@once-ui-system/core";
-import { person, social } from "@/resources";
+import { person, social, schema } from "@/resources";
 import styles from "./Footer.module.scss";
 
 export const Footer = () => {
@@ -21,15 +21,31 @@ export const Footer = () => {
           align: "center",
         }}
       >
-        <Text variant="body-default-s" onBackground="neutral-strong">
-          <Text onBackground="neutral-weak">© {currentYear} /</Text>
-          <Text paddingX="4">{person.name}</Text>
-          <Text onBackground="neutral-weak">
-            {/* Usage of this template requires attribution. Please don't remove the link to Once UI unless you have a Pro license. */}
-            / Build your portfolio with{" "}
-            <SmartLink href="https://once-ui.com/products/magic-portfolio">Once UI</SmartLink>
+        <Row
+          s={{ direction: "column", horizontal: "center", align: "center" }}
+          gap="m"
+        >
+          <Text variant="body-default-s" onBackground="neutral-strong">
+            <Text onBackground="neutral-weak">© {currentYear} /</Text>
+            <Text paddingX="4">{schema.name}</Text>
+            <Text onBackground="neutral-weak">
+              / All rights reserved
+            </Text>
           </Text>
-        </Text>
+          <Row gap="m" wrap horizontal="center">
+            <SmartLink href="/privacy-policy">
+              <Text variant="body-default-s" onBackground="neutral-weak">
+                Privacy Policy
+              </Text>
+            </SmartLink>
+            <Text variant="body-default-s" onBackground="neutral-weak">/</Text>
+            <SmartLink href="/terms-and-conditions">
+              <Text variant="body-default-s" onBackground="neutral-weak">
+                Terms & Conditions
+              </Text>
+            </SmartLink>
+          </Row>
+        </Row>
         <Row gap="16">
           {social.map(
             (item) =>

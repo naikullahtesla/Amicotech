@@ -18,15 +18,18 @@ const baseURL: string = "https://demo.magic-portfolio.com";
 
 const routes: RoutesConfig = {
   "/": true,
+  "/services": true,
+  "/industries": true,
+  "/contact": true,
   "/about": true,
-  "/work": true,
-  "/blog": true,
-  "/gallery": true,
+  "/workflow": true,
+  "/privacy-policy": true,
+  "/terms-and-conditions": true,
 };
 
 const display: DisplayConfig = {
-  location: true,
-  time: true,
+  location: false,
+  time: false,
   themeSwitcher: true,
 };
 
@@ -186,11 +189,11 @@ const mailchimp: MailchimpConfig = {
 
 // default schema data
 const schema: SchemaConfig = {
-  logo: "",
+  logo: "/images/logo.png",
   type: "Organization",
-  name: "Once UI",
+  name: "AmicoTech",
   description: home.description,
-  email: "lorant@once-ui.com",
+  email: "contact@amicotech.com",
 };
 
 // social links

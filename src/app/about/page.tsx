@@ -11,6 +11,7 @@ import {
   Meta,
   Schema,
   Row,
+  SmartLink,
 } from "@once-ui-system/core";
 import { baseURL, about, person, social } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
@@ -94,10 +95,6 @@ export default function About() {
             horizontal="center"
           >
             <Avatar src={person.avatar} size="xl" />
-            <Row gap="8" vertical="center">
-              <Icon onBackground="accent-weak" name="globe" />
-              {person.location}
-            </Row>
             {person.languages && person.languages.length > 0 && (
               <Row wrap gap="8">
                 {person.languages.map((language, index) => (
@@ -143,14 +140,14 @@ export default function About() {
               </Row>
             )}
             <Heading className={styles.textAlign} variant="display-strong-xl">
-              {person.name}
+              AmicoTech
             </Heading>
             <Text
               className={styles.textAlign}
               variant="display-default-xs"
               onBackground="neutral-weak"
             >
-              {person.role}
+              Software Development & Digital Solutions
             </Text>
             {social.length > 0 && (
               <Row
@@ -335,6 +332,26 @@ export default function About() {
               </Column>
             </>
           )}
+
+          {/* Legal Links */}
+          <Column gap="m" marginTop="xl" paddingTop="xl" border="neutral-alpha-weak">
+            <Heading as="h2" variant="display-strong-s" marginBottom="m">
+              Legal
+            </Heading>
+            <Row gap="m" wrap>
+              <SmartLink href="/privacy-policy">
+                <Text variant="body-default-m" onBackground="neutral-weak">
+                  Privacy Policy
+                </Text>
+              </SmartLink>
+              <Text variant="body-default-m" onBackground="neutral-weak">/</Text>
+              <SmartLink href="/terms-and-conditions">
+                <Text variant="body-default-m" onBackground="neutral-weak">
+                  Terms & Conditions
+                </Text>
+              </SmartLink>
+            </Row>
+          </Column>
         </Column>
       </Row>
     </Column>
